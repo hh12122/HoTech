@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Telecom Quiz for Scraping</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; line-height: 1.6; }
+        .question-block { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .qcm-question { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Telecom & Energy Basics Quiz</h1>
+    <p>This is a dummy HTML file used to test the Quiz Scraper functionality (UC-A06).</p>
+
+    <!-- Pattern 1: Div with class .question and radio button answers (High Confidence) -->
+    <div class="question question-block">
+        <p><strong>1. What does 'HTTP' stand for?</strong></p>
+        <div>
+            <input type="radio" id="q1a1" name="q1" value="1">
+            <label for="q1a1">HyperText Transfer Protocol</label>
+        </div>
+        <div>
+            <input type="radio" id="q1a2" name="q1" value="2">
+            <label for="q1a2">HyperText Transmission Protocol</label>
+        </div>
+        <div>
+            <input type="radio" id="q1a3" name="q1" value="3">
+            <label for="q1a3">Hyper Test Transfer Protocol</label>
+        </div>
+    </div>
+
+    <!-- Pattern 2: Div with .qcm-question and sibling UL list (Medium Confidence) -->
+    <div class="question-block">
+        <div class="qcm-question">
+            2. What is the standard port for HTTPS?
+        </div>
+        <ul>
+            <li>Port 80</li>
+            <li>Port 443</li>
+            <li>Port 21</li>
+            <li>Port 22</li>
+        </ul>
+    </div>
+
+    <!-- Pattern 3: Generic p strong and list (Medium/Low Confidence) -->
+    <div class="question-block">
+        <p><strong>3. Which of the following is a renewable energy source?</strong></p>
+        <ul>
+            <li>Coal</li>
+            <li>Natural Gas</li>
+            <li>Solar Power</li>
+            <li>Nuclear Power</li>
+        </ul>
+    </div>
+
+</body>
+</html>

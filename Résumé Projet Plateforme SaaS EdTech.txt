@@ -1,0 +1,89 @@
+Note de Cadrage : Plateforme SaaS 
+EdTech (ISF) 
+
+1. Contexte et Vision du Produit 
+
+L'Institut Suisse de Formation (ISF) est un organisme de formation basé en Suisse, 
+spécialisé dans les secteurs de l'assurance (certification AFA), de la téléphonie et des 
+énergies. 
+
+L'infrastructure actuelle repose sur un assemblage de Webflow, Memberstack et Zapier. Cette 
+solution a atteint ses limites techniques : manque de robustesse, maintenance complexe et 
+processus d'onboarding manuels chronophages. 
+
+L'objectif : Développer une plateforme SaaS propriétaire haut de gamme, reflétant la rigueur 
+et l'excellence suisses, capable de supporter une montée en charge (scalabilité) et une 
+expansion internaionale. 
+
+ 
+
+2. Objectifs Métiers (KPIs) 
+
+. Zéro Friction d'Onboarding : Automatisation totale entre le CRM (Close.com / iClose) et 
+l'accès élève. 
+. Protection du Capital Contenu : Hébergement et diffusion sécurisée d'une 
+cinquantaine de vidéos de formation via Bunny.net ou Cloudflare. 
+. Expérience Apprenant "Smooth" : Un dashboard fluide, une navigation intuitive et un 
+suivi de progression précis. 
+. Internationalisation : Support natif du Français, de l'Allemand et de l'Anglais. 
+
+
+3. Architecture Technique Préconisée 
+
+Pour allier agilité marketing et robustesse métier, le projet adopte une architecture hybride : 
+
+. Vitrine Marketing : Maintenue sur Webflow pour le SEO et la flexibilité du contenu 
+institutionnel. 
+. Plateforme LMS (SaaS) : Application Web dédiée utilisant React (Frontend), Node.js 
+(Backend) et PostgreSQL (Base de données). 
+
+
+
+. Hébergement : Serveurs localisés en Suisse ou en Europe (ex: Infomaniak, AWS Zurich) 
+pour des raisons de confiance et de conformité. 
+
+
+4. Piliers Fonctionnels Clés 
+
+A. Espace Apprenant (LMS) 
+
+. Dashboard dynamique avec reprise de lecture automatique et calcul de progression 
+granulaire. 
+. Lecteur vidéo premium avec gestion du débit adaptatif. 
+. Système d'évaluation : Quiz par module avec seuil de réussite pour débloquer les 
+étapes suivantes. 
+. Génération automatique de certificats PDF (uniquement pour les pôles Téléphonie et 
+Énergie). 
+
+
+B. Back-office Administrateur 
+
+. Course Builder : Interface de création de cours (Modules/Leçons) par simple 
+glisser-déposer. 
+. Gestionnaire de Médias : Upload natif vers Bunny.net/Cloudflare sans quitter l'admin. 
+. Outils IA & Productivité : Génération de quiz assistée par IA et outils de scraping pour 
+importer des quiz existants. 
+. Analytics : Suivi détaillé des performances élèves et taux de réussite. 
+
+
+C. Moteur d'Automatisation 
+
+. Intégration CRM : Écouteur de Webhooks (Close.com) pour la création automatique de 
+comptes dès la validation du paiement. 
+. Mails Transactionnels : Envoi automatisé des accès et des notifications d'onboarding. 
+
+
+ 
+
+5. Critères de Réussite Technique 
+
+1. Fiabilité : Aucune déconnexion ou bug lors des pics de connexion (25/30 élèves 
+simultanés par jour) 
+
+
+
+ 2. Sécurité : Protection des flux vidéos et des données personnelles des élèves. 
+3. UI/UX : Design minimaliste, sobre et "high-end” 
+
+
+

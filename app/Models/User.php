@@ -13,16 +13,8 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,7 +38,19 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    public function scopeActive($query) { return $query->where('is_active', true); }
+    public function scopeLearners($query) { return $query->where('role', 'learner'); }
+    public function scopeSearch($query, string $term) { 
+        return $query->where('name', 'like', "%{$term}%")
+                     ->orWhere('email', 'like', "%{$term}%"); 
+    }
+
+    public function enrollments() { return $this->hasMany(Enrollment::class); }
+    public function lessonProgresses() { return $this->hasMany(LessonProgress::class); }
+    public function quizAttempts() { return $this->hasMany(QuizAttempt::class); }
 }
